@@ -128,14 +128,13 @@ class Product_manager:
     def show_product(self):
         ft=0
         for sp in self.products:
-            if sp.quanlity==quanlity:
-                if ft :
-                    print("--------------------------------")
-                print(f"Ma san pham: {sp.spid}")
-                print(f"Ten san pham: {sp.name}")
-                print(f"Gia san pham: {sp.price}")
-                print(f"So luong san pham: {sp.quanlity}")
-                ft+=1
+            if ft :
+                print("--------------------------------")
+            print(f"Ma san pham: {sp.spid}")
+            print(f"Ten san pham: {sp.name}")
+            print(f"Gia san pham: {sp.price}")
+            print(f"So luong san pham: {sp.quanlity}")
+            ft+=1
 
     def save_json(self):
         data=[]

@@ -5,7 +5,6 @@ pm.load_json()
 
 while True:
     print("\n ~~\/\/\/\~~ Chao Mung Toi Chuong Trinh Quan Ly San Pham ~~\/\/\/\/~~")
-
     print("Ban Muon thuc hien chuc nang nao?")
     print("[1] Them san pham     | [2] Xoa san pham       | [3] Cap nhat san pham")
     print("[4] Tim kiem san pham | [5] Danh sach san pham | [6] Thoat ")

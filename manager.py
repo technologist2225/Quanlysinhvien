@@ -18,34 +18,29 @@ class Product_manager:
     
     def delete_product(self):
         spid=input("Nhap ma san pham ban muon xoa: ")
-        quanlity=int(input("Nhap so luong san pham ban muon xoa: "))
 
         for sp in self.products:
             if sp.spid == spid:
-                if self.quanlity > quanlity :
-                    self.quanlity-=quanlity
-                else:
-                    self.products.remove(sp)
+                self.products.remove(sp)
+                print(f"Da xoa thanh cong san pham!")
+                return()
 
-            print(f"Da xoa thanh cong {quanlity} san pham!")
-            return()
-        
         print("Khong tim thay san pham!")
     
     def update_product(self):
         spid=input("Nhap ma san pham muon sua: ")
         print("Nhap noi dung ban muon sua: ")
-        print("[1] Ten", " [2] Gia ", " [3] So luong", sep="|")
+        print("[1] Ten", "[2] Gia", "[3]So luong", sep=" | ")
         KT=[1,1,1,1,1]
         while (True):
-            gt=print("Nhap gia tri ban muon sua: ")
+            gt=int(input("Nhap gia tri ban muon sua: "))
             if KT[gt]:
                 KT[gt]=0
             else:
                 print("Ban da chon gia tri nay!")
             print("Ban con muon sua gia tri nao khong?")
             print("|[0] Khong | [1] Co|")
-            T=int()
+            T=int(input())
             if not T:
                 break
 
@@ -53,13 +48,13 @@ class Product_manager:
             if sp.spid == spid:
                 if not KT[1]:
                     name=input("Nhap ten moi cua san pham: ")
-                    self.name=name
+                    sp.name=name
                 if not KT[2]:
                     price=float(input("Nhap gia ca moi cua san pham: "))
-                    self.price=price
+                    sp.price=price
                 if not KT[3]:
                     quanlity=int(input("Nhap so luong moi cua san pham: "))
-                    self.quanlity=quanlity
+                    sp.quanlity=quanlity
                 
                 print("Da cap nhat thanh cong!")
                 return()
@@ -77,6 +72,7 @@ class Product_manager:
         match key:
             case 1:
                 spid=input("Nhap ma san pham: ")
+                print()
                 for sp in self.products:
                     if sp.spid == spid:
                         print(f"Ma san pham: {sp.spid}")
@@ -87,6 +83,7 @@ class Product_manager:
                 print("Khong tim thay san pham!")
             case 2:
                 name=input("Nhap Ten san pham: ")
+                print()
                 for sp in self.products:
                     if sp.name == name:
                         print(f"Ma san pham: {sp.spid}")
@@ -97,6 +94,7 @@ class Product_manager:
                 print("Khong tim thay san pham!")
             case 3:
                 print("Nhap khoang gia ban muon tim kiem: ")
+                print()
                 fst = int(input("Nhap gia tri bat dau: "))
                 ed = int(input("Nhap gia tri ket thuc: "))
                 ft=0
@@ -113,6 +111,7 @@ class Product_manager:
                     print("Khong co san pham nao nam trong khoang gia do!")
             case 4:
                 quanlity=int(input("Nhap so luong cua san pham ban muon tim kiem: "))
+                print()
                 ft=0
                 for sp in self.products:
                     if sp.quanlity==quanlity:
@@ -126,6 +125,11 @@ class Product_manager:
                 if not ft:
                     print(f"Khong co san pham co {quanlity} so luong!")
     def show_product(self):
+        if not self.products:
+            print("Khong co san pham!")
+            return
+        
+        print()
         ft=0
         for sp in self.products:
             if ft :
@@ -148,15 +152,17 @@ class Product_manager:
     def load_json(self):
 
         try:
-            with open("products.json", "r") as f:
+            with open("product.json", "r") as f:
                 data = json.load(f)
+
+            self.products = []
 
             for item in data:
                 sp = Product(
-                    item["id"],
+                    item["spid"],
                     item["name"],
                     item["price"],
-                    item["quantity"]
+                    item["quanlity"]
                 )
                 self.products.append(sp)
 

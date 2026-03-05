@@ -1,9 +1,9 @@
 class Product:
-    def __init__(self, spid, name, price, quantily):
+    def __init__(self, spid, name, price, quanlity):
         self.spid=spid
         self.name=name
         self.price=price
-        self.quanlity=quantily
+        self.quanlity=quanlity
 
     def to_dict(self):
         return{

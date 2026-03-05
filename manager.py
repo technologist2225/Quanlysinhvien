@@ -18,7 +18,7 @@ class Product_manager:
     
     def delete_product(self):
         spid=input("Nhap ma san pham ban muon xoa: ")
-        quanlity=int(input("Nhap so luong san pham ban muon xoa"))
+        quanlity=int(input("Nhap so luong san pham ban muon xoa: "))
 
         for sp in self.products:
             if sp.spid == spid:
@@ -35,7 +35,7 @@ class Product_manager:
     def update_product(self):
         spid=input("Nhap ma san pham muon sua: ")
         print("Nhap noi dung ban muon sua: ")
-        print("[1] Ten", "[2] Gia", "So luong", sep="|")
+        print("[1] Ten", " [2] Gia ", " [3] So luong", sep="|")
         KT=[1,1,1,1,1]
         while (True):
             gt=print("Nhap gia tri ban muon sua: ")
@@ -96,7 +96,7 @@ class Product_manager:
                         return()
                 print("Khong tim thay san pham!")
             case 3:
-                print("Nhap khoang gia ban muon tim kiem:")
+                print("Nhap khoang gia ban muon tim kiem: ")
                 fst = int(input("Nhap gia tri bat dau: "))
                 ed = int(input("Nhap gia tri ket thuc: "))
                 ft=0
@@ -112,7 +112,7 @@ class Product_manager:
                 if not ft:
                     print("Khong co san pham nao nam trong khoang gia do!")
             case 4:
-                quanlity=int(input("Nhap so luong cua san pham ban muon tim kiem:"))
+                quanlity=int(input("Nhap so luong cua san pham ban muon tim kiem: "))
                 ft=0
                 for sp in self.products:
                     if sp.quanlity==quanlity:

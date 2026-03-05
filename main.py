@@ -10,7 +10,7 @@ while True:
     print("[1] Them san pham     | [2] Xoa san pham       | [3] Cap nhat san pham")
     print("[4] Tim kiem san pham | [5] Danh sach san pham | [6] Thoat ")
     while True :
-        key=int(input("Chon hanh dong cua ban:"))
+        key=int(input("Chon hanh dong cua ban: "))
         if key >0 and key < 7:
             break
         print("Lua chon loi vui long chon lai!")
@@ -19,19 +19,24 @@ while True:
     match key:
         case 1:
             pm.add_product()
+            pm.save_json()
             input("Nhan enter de tro lai Menu!")
         case 2:
             pm.delete_product()
+            pm.save_json()
             input("Nhan enter de tro lai Menu!")
         case 3:
             pm.update_product()
+            pm.save_json()
             input("Nhan enter de tro lai Menu!")    
         case 4:
-
+            pm.search_product()
+            pm.save_json()
             input("Nhan enter de tro lai Menu!")
         case 5:
+            pm.show_product()
+            pm.save_json()
             input("Nhan enter de tro lai Menu!")
         case 6:
-            pm.save_json()
             print("Goodbye!")
             break
